@@ -1,0 +1,139 @@
+.admin-panel-container {
+  padding: 2.5rem;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+}
+
+.admin-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.admin-panel-header h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #343a40;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  min-width: 350px;
+}
+
+.search-container i {
+  color: #adb5bd;
+  margin-right: 0.75rem;
+}
+
+.search-input {
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  background-color: transparent;
+}
+
+.user-table-container {
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.07);
+  overflow-x: auto; /* Para responsividad en tablas */
+}
+
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.user-table th, .user-table td {
+  padding: 1.25rem 1.5rem;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.user-table thead {
+  background-color: #f1f3f5;
+}
+
+.user-table th {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #495057;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.user-table tbody tr {
+  border-bottom: 1px solid #e9ecef;
+}
+
+.user-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.user-table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+.status-badge {
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: #fff;
+}
+
+.status-activo {
+  background-color: #2dce89;
+}
+
+.status-suspendido {
+  background-color: #f5365c;
+}
+
+.actions-cell {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.action-btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  color: white;
+}
+
+.btn-view {
+  background-color: #6a85b6;
+}
+.btn-view:hover {
+  background-color: #5a7097;
+}
+
+.btn-suspend {
+  background-color: #f5365c;
+}
+.btn-suspend:hover {
+  background-color: #d42c4b;
+}
+
+.no-results {
+  text-align: center;
+  padding: 3rem;
+  font-style: italic;
+  color: #6c757d;
+}

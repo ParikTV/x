@@ -25,6 +25,9 @@ const Navbar: React.FC = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+  
+  // Simulación: Comprobar si el usuario es admin
+  const isAdmin = true; // En una app real, esto vendría del estado de autenticación
 
   return (
     <nav className={`navbar ${isScrolled ? "scrolled" : ""}`}>
@@ -88,7 +91,15 @@ const Navbar: React.FC = () => {
           </ul>
 
           <div className="navbar-actions">
-            {/* BOTÓN AÑADIDO */}
+            {/* Botón condicional para Admin */}
+            {isAdmin && (
+              <button
+                className="btn-admin" // Estilo opcional para diferenciarlo
+                onClick={() => handleNavigation("/admin/users")}
+              >
+                Panel Admin
+              </button>
+            )}
             <button
               className="btn-login"
               onClick={() => handleNavigation("/mis-citas")}

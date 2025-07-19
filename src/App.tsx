@@ -13,7 +13,8 @@ import NegocioEspecifico from "./components/pages/company/Negocio_Especifico";
 import Login from "./components/pages/forms/login/Login";
 import Register from "./components/pages/forms/registers/registerenterprise";
 import MyProfile from "./components/pages/user/MyProfile";
-import MyAppointments from "./components/pages/user/MyAppointments"; // Importar nuevo componente
+import MyAppointments from "./components/pages/user/MyAppointments";
+import AdminUserManagement from "./components/pages/admin/AdminUserManagement"; // Importar nuevo componente
 
 import ClinicImg from "./assets/images/Clinics.png";
 import RestaurantImg from "./assets/images/Restaurant.png";
@@ -64,6 +65,7 @@ function HomePage() {
             <img
               src={categoria.imagen}
               className="categoria-imagen"
+              alt=""
             />
           </div>
         ))}
@@ -91,7 +93,8 @@ function App() {
           <Route path="/forms/registers" element={<Register />} />
           <Route path="/forms/registersusers" element={<RegisterUser />} />
           <Route path="/profile" element={<MyProfile />} />
-          <Route path="/mis-citas" element={<MyAppointments />} /> {/* RUTA AÑADIDA */}
+          <Route path="/mis-citas" element={<MyAppointments />} />
+          <Route path="/admin/users" element={<AdminUserManagement />} /> {/* RUTA AÑADIDA */}
         </Routes>
         <Footer />
       </div>
