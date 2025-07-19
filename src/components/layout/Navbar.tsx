@@ -88,6 +88,13 @@ const Navbar: React.FC = () => {
           </ul>
 
           <div className="navbar-actions">
+            {/* BOTÓN AÑADIDO */}
+            <button
+              className="btn-login"
+              onClick={() => handleNavigation("/mis-citas")}
+            >
+              Mis Citas
+            </button>
             <button
               className="btn-login"
               onClick={() => handleNavigation("/profile")}

@@ -13,6 +13,7 @@ import NegocioEspecifico from "./components/pages/company/Negocio_Especifico";
 import Login from "./components/pages/forms/login/Login";
 import Register from "./components/pages/forms/registers/registerenterprise";
 import MyProfile from "./components/pages/user/MyProfile";
+import MyAppointments from "./components/pages/user/MyAppointments"; // Importar nuevo componente
 
 import ClinicImg from "./assets/images/Clinics.png";
 import RestaurantImg from "./assets/images/Restaurant.png";
@@ -25,22 +26,10 @@ function HomePage() {
   const navigate = useNavigate();
 
   const categorias = [
-    {
-      id: 2,
-      imagen: ClinicImg,
-    },
-    {
-      id: 1,
-      imagen: RestaurantImg,
-    },
-    {
-      id: 4,
-      imagen: HotelImg,
-    },
-    {
-      id: 3,
-      imagen: BarbershopImg,
-    },
+    { id: 2, imagen: ClinicImg, },
+    { id: 1, imagen: RestaurantImg, },
+    { id: 4, imagen: HotelImg, },
+    { id: 3, imagen: BarbershopImg, },
   ];
 
   const handleNavigateToCategoria = (categoryId: number) => {
@@ -83,7 +72,6 @@ function HomePage() {
   );
 }
 
-// Para llevar a las distintas pantallas, se agregan en "route"
 function App() {
   return (
     <Router>
@@ -103,7 +91,7 @@ function App() {
           <Route path="/forms/registers" element={<Register />} />
           <Route path="/forms/registersusers" element={<RegisterUser />} />
           <Route path="/profile" element={<MyProfile />} />
-
+          <Route path="/mis-citas" element={<MyAppointments />} /> {/* RUTA AÑADIDA */}
         </Routes>
         <Footer />
       </div>
