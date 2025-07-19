@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+.profile-background {
+  padding: 50px 20px;
+  background-color: #f0f2f5;
+  font-family: 'Poppins', sans-serif;
+  min-height: 100vh;
+}
+
+.profile-card {
+  max-width: 850px;
+  margin: auto;
+  background-color: #fff;
+  border-radius: 24px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  animation: slideUp 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.profile-header {
+  position: relative;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: white;
+}
+
+.profile-header-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: linear-gradient(45deg, #6a85b6 0%, #bac8e0 100%);
+  transform: skewY(-3deg);
+  transform-origin: top left;
+  z-index: 1;
+}
+
+.profile-avatar-container, .profile-user-info, .btn-edit {
+  position: relative;
+  z-index: 2;
+}
+
+.profile-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid white;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  margin-bottom: 15px;
+}
+
+.profile-user-info h2 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.profile-user-info .user-email {
+  margin: 5px 0 0;
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.btn-edit {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(5px);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-edit:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.profile-stats {
+  display: flex;
+  justify-content: space-around;
+  padding: 25px 0;
+  background-color: #f8f9fa;
+  border-top: 1px solid #e9ecef;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-value {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #343a40;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+.profile-body {
+  padding: 30px 40px;
+}
+
+.form-group label i {
+  margin-right: 10px;
+  color: #6a85b6;
+  width: 20px;
+  text-align: center;
+}
+
+.form-group textarea, .form-group input {
+  background-color: #fdfdff;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+  background-color: white;
+  border-color: #6a85b6;
+  box-shadow: 0 0 0 3px rgba(106, 133, 182, 0.15);
+}
+
+/* Re-utilizando estilos anteriores y ajustando */
+.btn { padding: 12px 24px; border: none; border-radius: 12px; cursor: pointer; font-size: 1rem; font-weight: 600; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 8px; }
+.form-row { display: flex; gap: 25px; margin-bottom: 25px; }
+.form-group { flex: 1; display: flex; flex-direction: column; }
+.form-group label { font-weight: 600; margin-bottom: 10px; color: #495057; font-size: 0.95rem; display: flex; align-items: center; }
+.form-group input, .form-group textarea { width: 100%; padding: 14px; border: 1px solid #e2e8f0; border-radius: 12px; font-size: 1rem; font-family: inherit; transition: border-color 0.3s, box-shadow 0.3s; }
+.form-group input:disabled, .form-group textarea:disabled { background-color: #f8f9fa; color: #6c757d; cursor: not-allowed; }
+.form-actions { display: flex; justify-content: flex-end; gap: 15px; margin-top: 30px; }
+.btn-save { background-color: #2dce89; color: white; }
+.btn-save:hover { background-color: #26b075; transform: translateY(-2px); box-shadow: 0 4px 15px rgba(45, 206, 137, 0.3); }
+.btn-cancel { background-color: #6c757d; color: white; }
+.btn-cancel:hover { background-color: #5a6268; transform: translateY(-2px); box-shadow: 0 4px 15px rgba(108, 117, 125, 0.3); }
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+  .form-row { flex-direction: column; gap: 0; margin-bottom: 0; }
+  .form-group { margin-bottom: 20px; }
+  .profile-stats { flex-direction: column; gap: 20px; padding: 20px; }
+}
+
+@media (max-width: 600px) {
+  .profile-background { padding: 20px 10px; }
+  .profile-header { padding: 30px 20px; }
+  .profile-body { padding: 20px; }
+  .btn-edit { top: 10px; right: 10px; padding: 8px 12px; font-size: 0.9rem; }
+}
