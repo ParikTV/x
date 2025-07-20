@@ -1,182 +1,182 @@
-/* Import color palette */
-@import "./paleta_colores.css";
+/* Import common color palette - assuming src/index.css already handles this global import */
+/* @import './paleta_colores.css'; */ /* This line is usually in index.css */
 
-/* Navbar Styles */
+/* No new colors added here, only using variables from paleta_colores.css */
+:root {
+  /* Fallback or local definitions if paleta_colores.css is not globally imported,
+     but ideally these are consumed directly from the global :root in paleta_colores.css */
+  --navbar-bg: var(--navy);
+  --navbar-text: var(--white);
+  --accent-color: var(--teal); /* Used for hovers and some link colors */
+  --hover-color-light: var(--sky-blue); /* Lighter hover background */
+  
+  /* Assigning existing palette colors to button roles */
+  --admin-btn-bg: var(--teal); /* Using teal for admin button */
+  --login-btn-bg: var(--navy); /* Using navy for login button */
+  --signup-btn-bg: var(--teal); /* Using teal for signup button, could be navy for contrast */
+}
+
+/* Base Navbar Styles */
 .navbar {
-  background: linear-gradient(135deg, var(--navy) 0%, var(--teal) 100%);
-  box-shadow: 0 4px 20px rgba(47, 65, 86, 0.15);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
+  background-color: var(--navbar-bg);
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: fixed;
   width: 100%;
-  min-width: 100vw;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.navbar.scrolled {
+  background-color: var(--navy); /* Use the primary navy color for a solid background when scrolled */
+  /* If you want a slight transparency, you'd need an RGBA value directly or a new variable in paleta_colores.css */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .navbar-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 70px;
+  max-width: 1200px; /* Limit content width */
+  margin: 0 auto;
+}
+
+/* Navbar Brand (BookingStore title) */
+.navbar-brand button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex; /* To align text */
+  align-items: center;
 }
 
 .navbar-brand h2 {
-  color: var(--white);
+  color: var(--navbar-text);
   font-size: 1.8rem;
   font-weight: 700;
   margin: 0;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  letter-spacing: -0.5px;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
 }
 
+.navbar-brand button:hover h2 {
+  color: var(--accent-color); /* Hover effect using --teal */
+}
+
+/* Navbar Menu (main navigation links) */
 .navbar-menu {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 2rem; /* Space between nav links and actions */
 }
 
 .navbar-nav {
-  display: flex;
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: 2rem;
+  display: flex;
+  gap: 1.5rem; /* Space between individual nav items */
 }
 
 .nav-item {
   position: relative;
 }
 
-.nav-item:hover {
-  z-index: 10;
-}
-
 .nav-link {
-  color: var(--white);
-  text-decoration: none;
-  font-weight: 500;
+  background: none;
+  border: none;
+  color: var(--navbar-text);
   font-size: 1rem;
+  font-weight: 500;
   padding: 0.5rem 1rem;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  position: relative;
+  cursor: pointer;
+  transition: color 0.3s ease, background-color 0.3s ease, border-radius 0.3s ease;
+  border-radius: 5px;
+  text-decoration: none;
   display: block;
-  user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-}
-
-.nav-link::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0.1),
-    rgba(255, 255, 255, 0.2)
-  );
-  border-radius: 8px;
-  transition: width 0.3s ease;
-  z-index: -1;
-}
-
-.nav-link:hover::before {
-  width: 100%;
 }
 
 .nav-link:hover {
-  color: var(--sky-blue);
-  transform: translateY(-2px);
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: var(--accent-color); /* Hover text using --teal */
+  background-color: var(--hover-color-light); /* Hover background using --sky-blue */
 }
 
+/* Navbar Actions (Login, Signup, Admin Panel) */
 .navbar-actions {
   display: flex;
-  gap: 1rem;
-  align-items: center;
+  gap: 1rem; /* Space between action buttons */
+  margin-left: 2rem; /* Separate from nav links */
+}
+
+.btn-admin,
+.btn-login,
+.btn-signup {
+  padding: 0.7rem 1.2rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  color: var(--white); /* Text color for all buttons */
+  text-transform: uppercase;
+}
+
+.btn-admin {
+  background-color: var(--admin-btn-bg); /* Using --teal for admin button */
+}
+
+.btn-admin:hover {
+  background-color: var(--accent-color); /* Hover effect for admin button */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(86, 124, 141, 0.3); /* Shadow based on --teal */
 }
 
 .btn-login {
-  background: transparent;
-  border: 2px solid var(--white);
-  color: var(--white);
-  padding: 0.6rem 1.5rem;
-  border-radius: 25px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-size: 0.9rem;
-  user-select: none;
-  outline: none;
+  background-color: var(--login-btn-bg); /* Using --navy for login button */
 }
 
 .btn-login:hover {
-  background: var(--white);
-  color: var(--navy);
+  background-color: var(--navy); /* Hover effect for login button */
   transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
-}
-
-.btn-login:focus {
-  outline: 2px solid var(--sky-blue);
-  outline-offset: 2px;
+  box-shadow: 0 4px 8px rgba(47, 65, 86, 0.3); /* Shadow based on --navy */
 }
 
 .btn-signup {
-  background: linear-gradient(135deg, var(--sky-blue) 0%, var(--beige) 100%);
-  border: none;
-  color: var(--navy);
-  padding: 0.6rem 1.5rem;
-  border-radius: 25px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-size: 0.9rem;
-  box-shadow: 0 4px 15px rgba(200, 217, 230, 0.3);
-  user-select: none;
-  outline: none;
+  background-color: var(--signup-btn-bg); /* Using --teal for signup button */
 }
 
 .btn-signup:hover {
+  background-color: var(--accent-color); /* Hover effect for signup button */
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(200, 217, 230, 0.4);
-  filter: brightness(1.1);
+  box-shadow: 0 4px 8px rgba(86, 124, 141, 0.3); /* Shadow based on --teal */
 }
 
-.btn-signup:focus {
-  outline: 2px solid var(--navy);
-  outline-offset: 2px;
-}
 
-/* Mobile Menu Toggle */
+/* Mobile Menu Toggle (Hamburger Icon) */
 .navbar-toggle {
-  display: none;
+  display: none; /* Hidden by default on larger screens */
   flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 25px;
   cursor: pointer;
-  padding: 0.5rem;
-  z-index: 1001;
+  z-index: 1001; /* Ensure it's above other elements when active */
 }
 
 .navbar-toggle .bar {
-  width: 25px;
+  width: 100%;
   height: 3px;
-  background: var(--white);
-  margin: 3px 0;
-  transition: all 0.3s ease;
-  border-radius: 2px;
+  background-color: var(--navbar-text);
+  transition: all 0.3s ease-in-out;
 }
 
-/* Mobile Menu Animation */
+/* Animation for hamburger icon to 'X' */
 .navbar-toggle.active .bar:nth-child(1) {
-  transform: rotate(-45deg) translate(-5px, 6px);
+  transform: translateY(11px) rotate(45deg);
 }
 
 .navbar-toggle.active .bar:nth-child(2) {
@@ -184,172 +184,97 @@
 }
 
 .navbar-toggle.active .bar:nth-child(3) {
-  transform: rotate(45deg) translate(-5px, -6px);
+  transform: translateY(-11px) rotate(-45deg);
 }
 
-/* Responsive Design */
-@media (max-width: 1024px) {
+/* Responsive Styles */
+@media (max-width: 900px) {
   .navbar-container {
-    padding: 0 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center; /* Center brand and toggle when stacked */
   }
 
-  .navbar-nav {
-    gap: 1.5rem;
-  }
-
-  .nav-link {
-    padding: 0.4rem 0.8rem;
-    font-size: 0.95rem;
-  }
-}
-
-@media (max-width: 960px) {
-  .navbar-container {
-    padding: 0 1rem;
-  }
-
-  .navbar-nav {
-    gap: 1rem;
-  }
-
-  .nav-link {
-    padding: 0.4rem 0.6rem;
-    font-size: 0.9rem;
-  }
-
-  .navbar-actions {
-    gap: 0.8rem;
-  }
-
-  .btn-login,
-  .btn-signup {
-    padding: 0.5rem 1.2rem;
-    font-size: 0.85rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .navbar-container {
-    padding: 0 1rem;
-  }
-
-  .navbar-toggle {
-    display: flex;
+  .navbar-brand {
+    flex-basis: 100%; /* Brand takes full width */
+    text-align: center;
+    margin-bottom: 1rem;
   }
 
   .navbar-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    min-width: 100vw;
-    background: linear-gradient(135deg, var(--navy) 0%, var(--teal) 100%);
     flex-direction: column;
-    padding: 3rem 2rem;
-    transform: translateY(-100%);
+    width: 100%;
+    background-color: var(--navbar-bg);
+    position: absolute;
+    top: 100%; /* Position below the header */
+    left: 0;
+    padding: 1rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-100%); /* Hide initially */
     opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-    box-shadow: 0 10px 30px rgba(47, 65, 86, 0.3);
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+    pointer-events: none; /* Disable interaction when hidden */
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    gap: 1rem; /* Adjust gap for mobile */
   }
 
   .navbar-menu.active {
-    transform: translateY(0);
+    transform: translateY(0); /* Show when active */
     opacity: 1;
-    visibility: visible;
+    pointer-events: all; /* Enable interaction */
   }
 
   .navbar-nav {
     flex-direction: column;
-    gap: 0;
     width: 100%;
-    align-items: center;
-    justify-content: center;
+    gap: 0.5rem; /* Smaller gap for mobile nav items */
   }
 
   .nav-item {
     width: 100%;
     text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
 
   .nav-link {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem 2rem;
-    width: auto;
-    min-width: 200px;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    text-align: center;
-    margin: 0.5rem auto;
-    background: rgba(255, 255, 255, 0.05);
-  }
-
-  .nav-link::before {
-    border-radius: 8px;
-  }
-
-  .nav-link:hover {
-    background: rgba(255, 255, 255, 0.15);
-    transform: scale(1.05);
-    color: var(--beige);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 0.8rem 1rem;
+    width: 100%; /* Make links full width */
   }
 
   .navbar-actions {
     flex-direction: column;
-    gap: 1rem;
-    margin-top: 1rem;
-    align-items: center;
-    justify-content: center;
     width: 100%;
+    gap: 0.8rem; /* Smaller gap for mobile action buttons */
+    margin-top: 1rem;
+    margin-left: 0; /* Remove left margin */
   }
 
+  .btn-admin,
   .btn-login,
   .btn-signup {
-    width: auto;
-    min-width: 200px;
-    max-width: 250px;
-    margin: 0.5rem auto;
-    display: block;
+    width: 80%; /* Make buttons wider */
+    margin: 0 auto; /* Center buttons */
+  }
+
+  .navbar-toggle {
+    display: flex; /* Show hamburger icon on smaller screens */
+    position: absolute;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .navbar-brand {
+    margin-bottom: 0; /* Reset margin for proper alignment */
   }
 }
 
-@media (max-width: 480px) {
-  .navbar-brand h2 {
-    font-size: 1.5rem;
-  }
-
+/* Adjust for smaller screens where toggle might overlap brand */
+@media (max-width: 600px) {
   .navbar-container {
-    height: 60px;
+    justify-content: space-between; /* Brand and toggle on opposite sides */
+    flex-wrap: nowrap; /* Prevent wrapping brand and toggle */
   }
-}
 
-/* Scroll effect */
-.navbar.scrolled {
-  background: rgba(47, 65, 86, 0.95);
-  backdrop-filter: blur(20px);
-}
-
-/* Animation for navbar appearance */
-@keyframes slideDown {
-  from {
-    transform: translateY(-100%);
-    opacity: 0;
+  .navbar-brand {
+    flex-basis: auto; /* Allow brand to take its natural width */
   }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-.navbar {
-  animation: slideDown 0.5s ease-out;
 }

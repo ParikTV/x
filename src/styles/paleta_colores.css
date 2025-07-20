@@ -1,8 +1,9 @@
-/* Color Variables for BookingStore */
+/* Ever/src/styles/paleta_colores.css */
 :root {
-  --navy: #2f4156;
-  --teal: #567c8d;
-  --sky-blue: #c8d9e6;
-  --beige: #f5efeb;
-  --white: #ffffff;
+  --navy: #0a192f;
+  --teal: #00796b;
+  --sky-blue: #88c0d0;
+  --white: #e5e9f0;
+  --light-slate: #a8b2d1;
+  --slate: #8892b0;
 }

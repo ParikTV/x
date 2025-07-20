@@ -1,3 +1,5 @@
+@import './styles/paleta_colores.css'; /* Make sure this line exists and is correct */
+
 html {
   overflow-x: hidden;
   width: 100%;
